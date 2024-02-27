@@ -1,0 +1,155 @@
+body {
+	background-color: #121212; /* Dark background for the theme */
+	color: #e0e0e0; /* Light text color for readability */
+	text-align: center;
+	font-size: 1em;
+	font-family: 'Verdana', sans-serif;
+	margin: 0;
+}
+
+h1 {
+	font-size: 1.4em;
+	padding: 20px 0;
+	border-bottom: 1px solid #333;
+	margin: 0 0 30px 0;
+	color: #fff;
+}
+
+/* rows */
+.row {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+
+.row > div {
+	display: block;
+	width: 60px;
+	height: 60px;
+	border: 1px solid #444; /* Lighter border for dark theme */
+	margin: 4px;
+	text-align: center;
+	line-height: 60px;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 2.5em;
+	transition: transform 0.3s; /* Smoother transition for hover */
+}
+
+.row > div:hover {
+	transform: translateY(-3px); /* Slight raise effect on hover */
+	cursor: pointer; /* Cursor effect to indicate interactivity */
+}
+
+/* Updated color classes for better visibility on dark background */
+.row > div.green {
+	background: #4caf50;
+	color: #fff;
+	animation: bigPop 0.7s ease forwards;
+}
+
+/* Keyframe animations for a big pop effect */
+@keyframes bigPop {
+	0% {
+		transform: scale(0);
+	}
+	50% {
+		transform: scale(1.3); /* Scale up for a big pop */
+	}
+	80% {
+		transform: scale(0.7);
+	}
+	100% {
+		transform: scale(1); /* Settle back to normal size with a bounce */
+	}
+}
+
+.row > div.grey {
+	background: #616161;
+	color: #fff;
+	animation: pop 0.6s ease forwards;
+}
+
+.row > div.yellow {
+	background: #d99410;
+	color: #fff;
+	animation: pop 0.5s ease forwards;
+}
+
+/* Keypad styling */
+.keypad {
+	max-width: 500px;
+	margin: 20px auto;
+	text-align: center;
+}
+
+.keypad > div {
+	margin: 5px;
+	width: 40px;
+	height: 50px;
+	background: #424242; /* Dark key background */
+	display: inline-block;
+	border-radius: 6px;
+	line-height: 50px;
+	text-align: center;
+	color: #fff; /* Light text for keys */
+	transition: background-color 0.3s, transform 0.3s; /* Smooth transition for color and transform */
+}
+
+/* Add margins before the first key of the second and third rows */
+.keypad > div:nth-child(11) {
+	margin-left: 20px; /* Adjust this value as needed for the second row */
+}
+
+.keypad > div:nth-child(20) {
+	margin-left: 0px; /* Adjust this value as needed for the third row */
+}
+
+.keypad > div:hover {
+	transform: scale(1.1); /* Enlarge keys on hover */
+	cursor: pointer;
+}
+
+/* Dark theme keypad color classes */
+.keypad > div.green {
+	background: #4caf50;
+	transition: background-color 0.3s ease-in;
+}
+
+.keypad > div.yellow {
+	background: #d99410;
+	transition: background-color 0.3s ease-in;
+}
+
+.keypad > div.grey {
+	background: #958f8f;
+	transition: background-color 0.3s ease-in;
+}
+
+/* keyframe animations */
+@keyframes pop {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.1);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes bounce {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+}
+
+/* Apply bounce to filled keys */
+.row.current > div.filled {
+	animation: bounce 0.4s ease-in-out forwards;
+}
